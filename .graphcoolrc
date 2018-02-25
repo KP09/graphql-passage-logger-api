@@ -1,3 +1,4 @@
 targets:
   passagelogger: shared-eu-west-1/cje2rwcv50p5l0101s4wvi2m2
   default: passagelogger
+  dev: local/cje2u7czm000601054vf3ps31
