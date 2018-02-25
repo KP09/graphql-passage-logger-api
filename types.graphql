@@ -3,8 +3,8 @@
 
 type User @model {
   id: ID! @isUnique
-  name: String
-  dateOfBirth: DateTime
+  firstName: String!
+  lastName: String!
 
   # Uncomment below - you can declare relations between models like this
 
@@ -16,7 +16,10 @@ type User @model {
 
 type Passage @model {
   id: ID! @isUnique
-  title: String!
+  departurePort: String!
+  departureDateTime: DateTime!
+  arrivalPort: String!
+  arrivalDateTime: DateTime!
 
   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
   author: User! @relation(name: "UserPosts")
