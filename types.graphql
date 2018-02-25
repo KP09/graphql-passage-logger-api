@@ -12,7 +12,7 @@ type Passage @model {
   description: String
   mileage: Float
   hours: Float
-  night_hours: Float
+  nightHours: Float
   role: String
   overnight: Boolean
   tidal: Boolean
