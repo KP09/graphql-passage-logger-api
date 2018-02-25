@@ -1,17 +1,6 @@
 # The following types define the data model of the example service
 # based on which the GraphQL API is generated
 
-type User @model {
-  id: ID! @isUnique
-  firstName: String!
-  lastName: String!
-
-  # Uncomment below - you can declare relations between models like this
-
-  passages: [Passage!]! @relation(name: "UserPassages")
-}
-
-
 # Uncomment the model below as well
 
 type Passage @model {
@@ -22,7 +11,7 @@ type Passage @model {
   arrivalDateTime: DateTime!
 
   # Every relation also required a back-relation (to determine 1:1, 1:n or n:m)
-  author: User! @relation(name: "UserPosts")
+  logger: User! @relation(name: "UserPassages")
 }
 
 
@@ -30,6 +19,8 @@ type Passage @model {
 type User @model {
   # Required system field:
   id: ID! @isUnique # read-only (managed by Graphcool)
+  firstName: String!
+  lastName: String!
 
   # Optional system fields (remove if not needed):
   createdAt: DateTime! # read-only (managed by Graphcool)
@@ -37,4 +28,7 @@ type User @model {
 
   facebookUserId: String @isUnique
   email: String # optional, because it's obtained from Facebook API
+
+  # Uncomment below - you can declare relations between models like this
+  passages: [Passage!]! @relation(name: "UserPassages")
 }
